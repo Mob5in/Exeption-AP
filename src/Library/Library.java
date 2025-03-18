@@ -18,7 +18,7 @@ public class Library {
         if(book == null){
             throw new InvalidBookException("Book should not be null");
         }
-        books.add(book);
+        this.books.add(book);
     }
 
     private Book findBook(String title){
@@ -32,7 +32,7 @@ public class Library {
 
 
     public void borrowBook(String title)throws Exception{
-        if(!books.isEmpty()){
+        if(books.isEmpty()){
             throw new EmptyLibraryException("Library is empty no book to borrow");
         }
         Book book = findBook(title);
@@ -54,7 +54,7 @@ public class Library {
 
 
     public void listBooks() throws EmptyLibraryException{
-        if(!books.isEmpty()){
+        if(books.isEmpty()){
             throw new EmptyLibraryException("Library is empty");
         }
         System.out.println("Books in the library");
